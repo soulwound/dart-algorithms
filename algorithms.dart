@@ -20,3 +20,17 @@ int? binarySearch(List<int> list, int item) {
   }
   return -1;
 }
+
+List<int> quickSort(List<int> list) {
+  if(list.length < 2) {
+    return list;
+  }
+  int pivot = list[0];
+  List<int> less = [];
+  List<int> greater = [];
+  for(int x in list) {
+    if(x < pivot) { less.add(x); }
+    else if(x > pivot) { greater.add(x); }
+  }
+  return (quickSort(less) + [pivot] + quickSort(greater));
+}
